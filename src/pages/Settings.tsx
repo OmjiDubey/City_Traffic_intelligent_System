@@ -53,7 +53,7 @@ export function Settings() {
             ["Application version", "1.0.0"],
             ["ANPR model", "v4.2 (synced 05:31)"],
             ["Cameras registered", "18"],
-            ["Operator", "Anil Srivastava"]].
+            ["Operator", "Omji Dubey"]].
             map(([k, v]) =>
             <div key={k} className="flex justify-between gap-3 py-2">
                 <dt className="text-muted">{k}</dt>

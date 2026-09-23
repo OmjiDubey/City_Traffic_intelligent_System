@@ -83,7 +83,7 @@ export function Header({ mobileNavOpen, onToggleMobileNav }: HeaderProps) {
             
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">AS</span>
             <span className="hidden text-left leading-tight sm:block">
-              <span className="block text-sm font-semibold text-navy">Anil Srivastava</span>
+              <span className="block text-sm font-semibold text-navy">Omji Dubey</span>
               <span className="block text-xs text-muted">Control Room Admin</span>
             </span>
             <ChevronDownIcon className="h-4 w-4 text-muted" aria-hidden="true" />
