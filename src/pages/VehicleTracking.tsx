@@ -84,7 +84,7 @@ export function VehicleTracking() {
 
       {status === "found" && vehicle && <VehicleSummary vehicle={vehicle} />}
       {status === "loading" &&
-      <div className="flex h-[6.5rem] items-center gap-4 rounded-lg border border-line bg-surface p-4 shadow-card" aria-busy="true">
+      <div className="flex h-20 items-center gap-3 rounded-lg border border-line bg-surface p-3 shadow-card" aria-busy="true">
           <div className="h-[4.5rem] w-[6.5rem] animate-pulse rounded-md bg-[#EEF2F6]" />
           <div className="flex-1 space-y-2">
             <div className="h-4 w-40 animate-pulse rounded bg-[#EEF2F6]" />
@@ -93,7 +93,7 @@ export function VehicleTracking() {
         </div>
       }
       {status === "idle" &&
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-line bg-primary-light px-4 py-3 text-sm">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-line bg-primary-light px-3 py-2 text-xs">
           <CarFrontIcon className="h-5 w-5 text-primary" aria-hidden="true" />
           <p className="text-navy">Routes are only reconstructed for a vehicle you search for. Enter a plate number to begin.</p>
           <div className="flex flex-wrap items-center gap-2 sm:ml-auto">
@@ -122,10 +122,10 @@ export function VehicleTracking() {
       }
 
       <div className="grid grid-cols-1 gap-3 xl:grid-cols-[minmax(0,1fr)_24rem]">
-        <section className="min-w-0 rounded-lg border border-line bg-surface p-4 shadow-card" aria-label="Vehicle route">
+        <section className="min-w-0 rounded-lg border border-line bg-surface p-3 shadow-card" aria-label="Vehicle route">
           <header className="mb-3 flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-base font-semibold text-navy">Vehicle Route</h2>
-            <div className="flex flex-wrap items-center gap-4 text-xs text-muted">
+            <h2 className="text-[13px] font-semibold text-navy">Vehicle Route</h2>
+            <div className="flex flex-wrap items-center gap-3 text-xs text-muted">
               <span className="flex items-center gap-1.5">
                 <span className="h-[3px] w-6 rounded bg-primary" aria-hidden="true" /> Observed route
               </span>
@@ -154,7 +154,7 @@ export function VehicleTracking() {
             <RouteMap vehicle={status === "found" ? vehicle : null} selectedIndex={selected} onSelect={setSelected} height={expanded ? 560 : 340} />
             {status === "loading" &&
             <div className="absolute inset-0 z-[1000] flex items-center justify-center rounded-md bg-surface/70">
-                <span className="flex items-center gap-2 rounded-md border border-line bg-surface px-3 py-2 text-sm font-medium text-navy shadow-card">
+                <span className="flex items-center gap-2 rounded-md border border-line bg-surface h-[30px] px-2.5 py-1.5 text-xs font-medium text-navy shadow-card">
                   <Loader2Icon className="h-4 w-4 animate-spin text-primary" /> Reconstructing route…
                 </span>
               </div>
@@ -164,14 +164,14 @@ export function VehicleTracking() {
           <p className="mt-2 text-xs text-muted">Solid segments are reconstructed from consecutive camera observations. Dashed segments are inferred where no camera observed the vehicle.</p>
           }
 
-          <h2 className="mb-2 mt-5 text-base font-semibold text-navy">
-            Detection Timeline {vehicle && status === "found" && <span className="text-sm font-normal text-muted">({vehicle.sightings.length} sightings)</span>}
+          <h2 className="mb-2 mt-5 text-[13px] font-semibold text-navy">
+            Detection Timeline {vehicle && status === "found" && <span className="text-xs font-normal text-muted">({vehicle.sightings.length} sightings)</span>}
           </h2>
           {status === "found" && vehicle ?
           <DetectionTimeline vehicle={vehicle} selectedIndex={selected} onSelect={setSelected} /> :
 
           <div className="rounded-md border border-dashed border-line">
-              <p className="px-4 py-6 text-center text-sm text-muted">
+              <p className="px-3 py-4 text-center text-sm text-muted">
                 {status === "loading" ? "Loading camera sightings…" : "Camera sightings appear here after a successful search."}
               </p>
             </div>
@@ -182,8 +182,8 @@ export function VehicleTracking() {
         <EvidencePanel vehicle={vehicle} index={selected} onChange={setSelected} /> :
 
         <section className="rounded-lg border border-line bg-surface shadow-card" aria-label="Detection details">
-            <h2 className="px-4 pt-3.5 text-base font-semibold text-navy">Detection Details</h2>
-            <p className="px-4 py-10 text-center text-sm text-muted">Select a sighting to review the original frame, crops and OCR result.</p>
+            <h2 className="px-3 pt-2.5 text-[13px] font-semibold text-navy">Detection Details</h2>
+            <p className="px-3 py-6 text-center text-sm text-muted">Select a sighting to review the original frame, crops and OCR result.</p>
           </section>
         }
       </div>

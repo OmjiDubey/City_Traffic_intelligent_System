@@ -85,7 +85,7 @@ export function TrafficAnalytics() {
         </div>
       </Panel>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <KpiCard icon={CarIcon} label="Total Traffic Volume" value={formatNumber(total)} note={range} />
         <KpiCard icon={GaugeIcon} label="Average Speed" value="23.4 km/h" trend={{ value: "1.8 km/h", direction: "down", tone: "bad" }} note="vs. baseline" />
         <KpiCard icon={ClockIcon} label="Average Travel Time" value="18.6 min" trend={{ value: "2.1 min", direction: "up", tone: "bad" }} note="per 5 km corridor" />
@@ -98,7 +98,7 @@ export function TrafficAnalytics() {
         
       </div>
 
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-12">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-12">
         <VolumePanel className="xl:col-span-8" range={range} loading={loading} hourly={hourly} daily={daily} showBaseline={showBaseline} onToggleBaseline={setShowBaseline} />
         <CongestionRanking className="xl:col-span-4" />
       </div>

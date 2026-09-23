@@ -28,7 +28,7 @@ export function Header({ mobileNavOpen, onToggleMobileNav }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 flex h-12 shrink-0 items-center gap-3 border-b border-line bg-surface pr-4 lg:pr-6">
-      <div className="flex h-full shrink-0 items-center gap-2 pl-3 lg:w-[188px] lg:border-r lg:border-line lg:pl-5">
+      <div className="flex h-full shrink-0 items-center gap-2 pl-3 lg:w-[200px] lg:border-r lg:border-line lg:pl-5">
         <button
           type="button"
           onClick={onToggleMobileNav}

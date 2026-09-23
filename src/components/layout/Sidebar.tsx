@@ -71,7 +71,7 @@ export function Sidebar({
           </span>}
       </NavLink>
     </li>;
-  return <nav aria-label="Main navigation" className={`${mobileOpen ? "flex" : "hidden"} fixed inset-y-0 left-0 top-12 z-40 w-[188px] flex-col border-r border-line bg-canvas lg:static lg:flex ${collapsed ? "lg:w-[4.5rem]" : "lg:w-[188px]"} shrink-0`}>
+  return <nav aria-label="Main navigation" className={`${mobileOpen ? "flex" : "hidden"} fixed inset-y-0 left-0 top-12 z-40 w-[200px] flex-col border-r border-line bg-canvas lg:static lg:flex ${collapsed ? "lg:w-[4.5rem]" : "lg:w-[200px]"} shrink-0`}>
       <ul className="flex flex-col gap-1 p-3 pt-4">{primaryNav.map(renderItem)}</ul>
       <div className="mx-4 border-t border-line" />
       <ul className="flex flex-col gap-1 p-3">{secondaryNav.map(renderItem)}</ul>
