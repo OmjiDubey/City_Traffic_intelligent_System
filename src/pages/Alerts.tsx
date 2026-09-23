@@ -39,19 +39,19 @@ export function Alerts() {
     const isSel = a.id === selectedId;
     return (
       <tr onClick={() => select(a.id)} className={`cursor-pointer transition-colors duration-150 ${isSel ? "bg-primary-light" : "hover:bg-canvas"}`} aria-selected={isSel}>
-        <td className="tabular px-4 py-2.5 text-muted">{a.time}</td>
-        <td className="px-3 py-2.5">
+        <td className="tabular px-4 py-1.5 text-muted">{a.time}</td>
+        <td className="px-3 py-1.5">
           <span className="font-medium text-ink">{a.type}</span>
           {a.unusual && <span className="ml-2 text-xs text-muted">· unusual</span>}
         </td>
-        <td className="max-w-[200px] truncate px-3 py-2.5 text-ink">{a.location}</td>
-        <td className="px-3 py-2.5">
+        <td className="max-w-[200px] truncate px-3 py-1.5 text-ink">{a.location}</td>
+        <td className="px-3 py-1.5">
           <StatusBadge tone={resolved ? "neutral" : severityTone(a.severity)}>{a.severity}</StatusBadge>
         </td>
-        <td className="px-3 py-2.5">
+        <td className="px-3 py-1.5">
           <StatusBadge tone={alertStatusTone(a.status)}>{resolved ? `Resolved ${a.resolvedAt ?? ""}` : a.status}</StatusBadge>
         </td>
-        <td className="px-4 py-2.5 text-right">
+        <td className="px-4 py-1.5 text-right">
           <button
             type="button"
             onClick={(e) => {
@@ -81,10 +81,10 @@ export function Alerts() {
 
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Alerts" description="What requires attention now, and operational events that occurred recently." />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <KpiCard icon={BellIcon} label="Active Alerts" value={allActive.length} note={`${allActive.filter((a) => a.status === "Acknowledged").length} acknowledged`} />
         <KpiCard icon={OctagonAlertIcon} tone="danger" label="Critical" value={allActive.filter((a) => a.severity === "Critical").length} note="immediate action" />
         <KpiCard icon={TriangleAlertIcon} tone="warning" label="High Priority" value={allActive.filter((a) => a.severity === "High").length} note="open or acknowledged" />
@@ -92,14 +92,14 @@ export function Alerts() {
         <KpiCard icon={ActivityIcon} label="Unusual Events" value={alerts.filter((a) => a.unusual).length} note="deviation-based" />
       </div>
 
-      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_26.25rem]">
-        <div className="min-w-0 space-y-5">
+      <div className="grid grid-cols-1 items-start gap-3 xl:grid-cols-[minmax(0,1fr)_26.25rem]">
+        <div className="min-w-0 space-y-3">
           <Panel title="Active Alerts" subtitle={`(${active.length})`} action={<SegmentedControl label="Severity" options={severityFilters} value={severity} onChange={setSeverity} />} bodyClassName="px-0 pb-2">
             {active.length === 0 ?
             <EmptyState icon={BellOffIcon} title="No active alerts." description={severity === "All" ? "All alerts have been resolved." : `No active ${severity.toLowerCase()} alerts.`} /> :
 
             <div className="overflow-x-auto">
-                <table className="w-full min-w-[720px] text-sm">
+                <table className="w-full min-w-[620px] text-xs">
                   {head}
                   <tbody className="divide-y divide-line-soft">
                     {active.map((a) =>
@@ -113,7 +113,7 @@ export function Alerts() {
 
           <Panel title="Alert History" subtitle="(Resolved today)" bodyClassName="px-0 pb-2">
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[720px] text-sm">
+              <table className="w-full min-w-[620px] text-xs">
                 {head}
                 <tbody className="divide-y divide-line-soft">
                   {history.map((a) =>

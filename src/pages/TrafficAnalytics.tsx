@@ -59,11 +59,11 @@ export function TrafficAnalytics() {
   const change = baseTotal ? (total - baseTotal) / baseTotal * 100 : 0;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Traffic Analytics" description="Traffic volume, movement conditions, congestion and deviations from normal patterns." />
 
-      <Panel bodyClassName="p-4">
-        <div className="flex flex-wrap items-end gap-3">
+      <Panel bodyClassName="p-2.5">
+        <div className="flex flex-wrap items-end gap-2.5">
           <div className="flex flex-col gap-1">
             <span className="text-xs font-medium text-muted">Period</span>
             <SegmentedControl label="Period" options={ranges} value={range} onChange={setRange} />
@@ -72,11 +72,11 @@ export function TrafficAnalytics() {
           <div className="flex items-end gap-2">
               <label className="flex flex-col gap-1 text-xs font-medium text-muted">
                 From
-                <input type="date" value={from} max={to} min="2026-09-17" onChange={(e) => setFrom(e.target.value)} className="h-9 rounded-md border border-line px-2 text-sm text-ink focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                <input type="date" value={from} max={to} min="2026-09-17" onChange={(e) => setFrom(e.target.value)} className="h-[30px] rounded-md border border-line px-2.5 text-xs text-ink focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
               </label>
               <label className="flex flex-col gap-1 text-xs font-medium text-muted">
                 To
-                <input type="date" value={to} min={from} max="2026-09-23" onChange={(e) => setTo(e.target.value)} className="h-9 rounded-md border border-line px-2 text-sm text-ink focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+                <input type="date" value={to} min={from} max="2026-09-23" onChange={(e) => setTo(e.target.value)} className="h-[30px] rounded-md border border-line px-2.5 text-xs text-ink focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
               </label>
             </div>
           }

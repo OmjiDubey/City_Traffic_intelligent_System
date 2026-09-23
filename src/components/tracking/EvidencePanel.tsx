@@ -49,7 +49,7 @@ export function EvidencePanel({ vehicle, index, onChange }: EvidencePanelProps) 
 
   return (
     <section className="flex min-w-0 flex-col rounded-lg border border-line bg-surface shadow-card" aria-label="Detection details">
-      <header className="flex items-center justify-between gap-2 px-4 pb-3 pt-3.5">
+      <header className="flex items-center justify-between gap-2 px-3 py-2">
         <h2 className="text-base font-semibold text-navy">Detection Details</h2>
         <div className="flex items-center gap-1">
           <button type="button" onClick={() => onChange(Math.max(0, index - 1))} disabled={index === 0} className="rounded-md border border-line p-1.5 text-navy hover:bg-canvas disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary" aria-label="Previous detection">
@@ -105,7 +105,7 @@ export function EvidencePanel({ vehicle, index, onChange }: EvidencePanelProps) 
           )}
         </dl>
 
-        <button type="button" onClick={download} className="flex h-10 w-full items-center justify-center gap-2 rounded-md border border-primary text-sm font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+        <button type="button" onClick={download} className="flex h-[30px] w-full items-center justify-center gap-2 rounded-md border border-primary text-xs font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
           <DownloadIcon className="h-4 w-4" /> Download Evidence
         </button>
       </div>

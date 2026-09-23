@@ -31,12 +31,12 @@ export function StatusBadge({ tone, children, dot = false, className }: StatusBa
   return (
     <span
       className={twMerge(
-        "inline-flex items-center gap-1.5 whitespace-nowrap rounded px-2 py-0.5 text-xs font-medium",
+        "inline-flex items-center gap-1.5 whitespace-nowrap rounded px-1.5 py-0.5 text-[10px] font-medium",
         toneClasses[tone],
         className
       )}>
       
-      {dot && <span className={twMerge("h-1.5 w-1.5 rounded-full", dotClasses[tone])} aria-hidden="true" />}
+      {dot && <span className={twMerge("h-1 w-1 rounded-full", dotClasses[tone])} aria-hidden="true" />}
       {children}
     </span>);
 

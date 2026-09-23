@@ -10,8 +10,8 @@ export function SignedOut() {
           <TrafficConeIcon className="h-6 w-6" aria-hidden="true" />
         </span>
         <h1 className="mt-4 text-xl font-bold text-navy">You have been signed out</h1>
-        <p className="mt-1 text-sm text-muted">Your City Traffic Intelligence System session has ended on this workstation.</p>
-        <Link to="/" className="mt-6 flex h-10 items-center justify-center gap-2 rounded-md bg-primary text-sm font-semibold text-white hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        <p className="mt-1 text-xs text-muted">Your City Traffic Intelligence System session has ended on this workstation.</p>
+        <Link to="/" className="mt-6 flex h-[30px] items-center justify-center gap-2 rounded-md bg-primary text-xs font-semibold text-white hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
           <LogInIcon className="h-4 w-4" /> Sign in again
         </Link>
       </div>

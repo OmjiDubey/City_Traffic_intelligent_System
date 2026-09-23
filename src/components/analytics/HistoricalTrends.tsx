@@ -16,7 +16,7 @@ export function HistoricalTrends() {
 
   return (
     <Panel title="Historical Trends" action={<SegmentedControl label="Comparison" options={modes} value={mode} onChange={setMode} />}>
-      <ResponsiveContainer width="100%" height={235}>
+      <ResponsiveContainer width="100%" height={210}>
         {mode === modes[0] ?
         <LineChart data={hourlyVolume} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
             <CartesianGrid vertical={false} stroke="#E9EEF4" />

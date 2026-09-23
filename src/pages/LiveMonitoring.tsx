@@ -48,11 +48,11 @@ export function LiveMonitoring() {
   const visibleDetections = detections.filter((d) => vehicleType === "All types" || d.vehicleType === vehicleType);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Live Monitoring" description="What the traffic cameras are seeing right now." />
 
-      <Panel bodyClassName="p-4">
-        <div className="flex flex-wrap items-end gap-3">
+      <Panel bodyClassName="p-2.5">
+        <div className="flex flex-wrap items-end gap-2.5">
           <SelectField label="Camera" value={selectedId ?? "All cameras"} options={["All cameras", ...cameras.map((c) => c.id)]} onChange={openCamera} className="w-full sm:w-40" />
           <SelectField label="Zone" value={zone} options={zones} onChange={setZone} className="w-full sm:w-40" />
           <SelectField label="Camera status" value={status} options={statuses} onChange={setStatus} className="w-full sm:w-40" />
@@ -65,7 +65,7 @@ export function LiveMonitoring() {
             <button
               type="button"
               onClick={() => setLive((l) => !l)}
-              className="flex h-9 items-center gap-2 rounded-md border border-line bg-surface px-3 text-sm font-medium text-navy transition-colors duration-150 hover:bg-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+              className="flex h-[30px] items-center gap-2 rounded-md border border-line bg-surface px-3 text-xs font-medium text-navy transition-colors duration-150 hover:bg-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
               
               {live ? <PauseIcon className="h-4 w-4" /> : <PlayIcon className="h-4 w-4" />}
               {live ? "Pause feeds" : "Resume feeds"}
@@ -74,7 +74,7 @@ export function LiveMonitoring() {
         </div>
       </Panel>
 
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_22.5rem]">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-[minmax(0,1fr)_22.5rem]">
         <Panel
           title="Camera Workspace"
           subtitle={`${filtered.length} cameras`}
@@ -139,13 +139,13 @@ export function LiveMonitoring() {
           bodyClassName="px-0 pb-2">
           
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-xs">
               <thead className="border-y border-line bg-canvas text-left text-xs font-semibold text-muted">
                 <tr>
-                  <th className="px-4 py-2">Time</th>
-                  <th className="px-2 py-2">Plate / Type</th>
-                  <th className="px-2 py-2">Conf.</th>
-                  <th className="px-4 py-2 text-right">Evidence</th>
+                  <th className="px-4 py-1">Time</th>
+                  <th className="px-2 py-1">Plate / Type</th>
+                  <th className="px-2 py-1">Conf.</th>
+                  <th className="px-4 py-1 text-right">Evidence</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-line-soft">
@@ -160,18 +160,18 @@ export function LiveMonitoring() {
                         animate={{ opacity: 1, backgroundColor: "rgba(255,255,255,0)" }}
                         transition={{ duration: 0.25, ease: [0.23, 1, 0.32, 1] }}>
                         
-                        <td className="tabular px-4 py-2 align-top text-muted">
+                        <td className="tabular px-4 py-1.5 align-top text-muted">
                           {d.time}
                           <span className="block text-xs">{d.cameraId}</span>
                         </td>
-                        <td className="px-2 py-2 align-top">
+                        <td className="px-2 py-1.5 align-top">
                           <Link to={`/vehicle-tracking?plate=${encodeURIComponent(d.plate)}`} className="whitespace-nowrap font-semibold text-primary hover:underline">
                             {d.plate}
                           </Link>
                           <span className="block text-xs text-muted">{d.vehicleType}</span>
                         </td>
-                        <td className={`tabular px-2 py-2 align-top font-medium ${confidenceClass(d.confidence)}`}>{d.confidence}%</td>
-                        <td className="px-4 py-2">
+                        <td className={`tabular px-2 py-1.5 align-top font-medium ${confidenceClass(d.confidence)}`}>{d.confidence}%</td>
+                        <td className="px-4 py-1.5">
                           <EvidenceThumb image={cam?.image ?? ""} label={`Evidence for ${d.plate}`} className="ml-auto h-9 w-14" />
                         </td>
                       </motion.tr>);

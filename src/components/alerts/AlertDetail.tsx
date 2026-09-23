@@ -32,21 +32,21 @@ export function AlertDetail({ alert }: {alert: TrafficAlert;}) {
   if (a.resolvedAt) rows.push(["Resolved at", a.resolvedAt]);
 
   const secondaryBtn =
-  "flex h-9 items-center justify-center gap-1.5 rounded-md border border-line bg-surface px-3 text-sm font-semibold text-navy transition-colors duration-150 hover:bg-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-40";
+  "flex h-[30px] items-center justify-center gap-1.5 rounded-md border border-line bg-surface px-2.5 text-xs font-semibold text-navy transition-colors duration-150 hover:bg-canvas focus:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:opacity-40";
 
   return (
-    <div className="space-y-4 p-4">
+    <div className="space-y-3 p-3">
       <div className="flex items-center justify-between gap-2">
-        <p className="tabular text-sm font-semibold text-muted">{a.id}</p>
+        <p className="tabular text-xs font-semibold text-muted">{a.id}</p>
         <StatusBadge tone={alertStatusTone(a.status)} dot>
           {a.status}
         </StatusBadge>
       </div>
-      <p className="text-sm leading-relaxed text-ink">{a.description}</p>
+      <p className="text-xs leading-relaxed text-ink">{a.description}</p>
 
-      <dl className="divide-y divide-line-soft border-y border-line text-sm">
+      <dl className="divide-y divide-line-soft border-y border-line text-xs">
         {rows.map(([k, v]) =>
-        <div key={k} className="grid grid-cols-[8.125rem_minmax(0,1fr)] gap-2 py-1.5">
+        <div key={k} className="grid grid-cols-[7.5rem_minmax(0,1fr)] gap-2 py-1">
             <dt className="text-muted">{k}</dt>
             <dd className="font-medium text-ink">{v}</dd>
           </div>
@@ -54,24 +54,24 @@ export function AlertDetail({ alert }: {alert: TrafficAlert;}) {
       </dl>
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-navy">Related evidence</h3>
+        <h3 className="mb-1.5 text-xs font-semibold text-navy">Related evidence</h3>
         {camera ?
         <CameraFeed camera={camera} showOverlays showTelemetry /> :
 
-        <p className="rounded-md border border-dashed border-line px-3 py-4 text-center text-sm text-muted">System-generated event — no camera evidence.</p>
+        <p className="rounded-md border border-dashed border-line px-3 py-3 text-center text-xs text-muted">System-generated event — no camera evidence.</p>
         }
         {a.plate &&
-        <div className="mt-2 flex items-center justify-between rounded-md border border-line bg-canvas px-3 py-2">
-            <span className="text-xs text-muted">Vehicle involved</span>
+        <div className="mt-1.5 flex items-center justify-between rounded-md border border-line bg-canvas px-2.5 py-1.5">
+            <span className="text-[11px] text-muted">Vehicle involved</span>
             <LicensePlate plate={a.plate} />
           </div>
         }
         {a.metrics &&
-        <dl className="mt-2 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line">
+        <dl className="mt-1.5 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line">
             {a.metrics.map((m) =>
-          <div key={m.label} className="bg-surface px-3 py-2">
-                <dt className="text-xs text-muted">{m.label}</dt>
-                <dd className="tabular text-sm font-bold text-navy">{m.value}</dd>
+          <div key={m.label} className="bg-surface px-2.5 py-1.5">
+                <dt className="text-[11px] text-muted">{m.label}</dt>
+                <dd className="tabular text-xs font-bold text-navy">{m.value}</dd>
               </div>
           )}
           </dl>
@@ -80,26 +80,26 @@ export function AlertDetail({ alert }: {alert: TrafficAlert;}) {
 
       <div className="grid grid-cols-2 gap-2">
         <button type="button" disabled={a.status !== "Open"} onClick={() => act("Acknowledged")} className={secondaryBtn}>
-          <CheckIcon className="h-4 w-4" /> Acknowledge
+          <CheckIcon className="h-3.5 w-3.5" /> Acknowledge
         </button>
         <button
           type="button"
           disabled={a.status === "Resolved"}
           onClick={() => act("Resolved")}
-          className="flex h-9 items-center justify-center gap-1.5 rounded-md bg-primary px-3 text-sm font-semibold text-white transition-colors duration-150 hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-40">
+          className="flex h-[30px] items-center justify-center gap-1.5 rounded-md bg-primary px-2.5 text-xs font-semibold text-white transition-colors duration-150 hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-40">
           
-          <CheckCheckIcon className="h-4 w-4" /> Mark resolved
+          <CheckCheckIcon className="h-3.5 w-3.5" /> Mark resolved
         </button>
         <button type="button" disabled={!camera} onClick={() => camera && navigate(`/live-monitoring?camera=${camera.id}`)} className={secondaryBtn}>
-          <VideoIcon className="h-4 w-4" /> View source
+          <VideoIcon className="h-3.5 w-3.5" /> View source
         </button>
         {a.violationId ?
         <button type="button" onClick={() => navigate(`/violations?id=${a.violationId}`)} className={secondaryBtn}>
-            <FileWarningIcon className="h-4 w-4" /> View violation
+            <FileWarningIcon className="h-3.5 w-3.5" /> View violation
           </button> :
 
         <button type="button" disabled={!a.plate} onClick={() => a.plate && navigate(`/vehicle-tracking?plate=${encodeURIComponent(a.plate)}`)} className={secondaryBtn} title={a.plate ? undefined : "No vehicle linked to this alert"}>
-            <RouteIcon className="h-4 w-4" /> View vehicle
+            <RouteIcon className="h-3.5 w-3.5" /> View vehicle
           </button>
         }
       </div>

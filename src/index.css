@@ -17,7 +17,7 @@ body,
 /* Compact density: the root type scale drives every rem-based token
    (typography, spacing, control heights, radii) across the app. */
 html {
-  font-size: 90%;
+  
 }
 body {
   background: #f7f9fc;

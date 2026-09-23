@@ -50,7 +50,7 @@ export function CameraDetailDialog({ camera, detections, paused, vehicleFilter, 
     <AnimatePresence>
       {camera &&
       <motion.div
-        className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-ink/40 p-3 sm:p-6"
+        className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-ink/40 p-3 sm:p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -87,8 +87,8 @@ export function CameraDetailDialog({ camera, detections, paused, vehicleFilter, 
               </button>
             </header>
 
-            <div className="grid gap-4 p-4 lg:grid-cols-[1fr_18.75rem]">
-              <div className="min-w-0 space-y-4">
+            <div className="grid gap-3 p-4 lg:grid-cols-[1fr_18.75rem]">
+              <div className="min-w-0 space-y-3">
                 <CameraFeed camera={camera} showOverlays showTelemetry paused={paused} vehicleFilter={vehicleFilter} />
                 <div>
                   <h3 className="mb-2 text-sm font-semibold text-navy">Recent detections at this camera</h3>
@@ -133,7 +133,7 @@ export function CameraDetailDialog({ camera, detections, paused, vehicleFilter, 
                 </div>
               </div>
 
-              <aside className="space-y-4">
+              <aside className="space-y-3">
                 <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line">
                   {[
                 { k: "Vehicles in frame", v: camera.status === "Offline" ? "—" : String((overlays[camera.id]?.length ?? 2) * 4) },
@@ -167,7 +167,7 @@ export function CameraDetailDialog({ camera, detections, paused, vehicleFilter, 
                 </div>
                 <Link
                 to={`/cameras?id=${camera.id}`}
-                className="flex h-9 items-center justify-center gap-2 rounded-md border border-primary text-sm font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                className="flex h-[30px] items-center justify-center gap-2 rounded-md border border-primary text-xs font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 
                   <SettingsIcon className="h-4 w-4" /> View camera health
                 </Link>

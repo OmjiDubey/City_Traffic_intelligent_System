@@ -56,10 +56,10 @@ export function CongestionChart({ data, height = 170 }: CongestionChartProps) {
           )}
         </LineChart>
       </ResponsiveContainer>
-      <ul className="mt-2 flex items-center justify-center gap-5 text-xs text-muted">
+      <ul className="mt-2 flex items-center justify-center gap-4 text-[11px] text-muted">
         {(Object.keys(colors) as Level[]).map((k) =>
         <li key={k} className="flex items-center gap-1.5 capitalize">
-            <span className="h-2 w-2 rounded-full" style={{ background: colors[k] }} aria-hidden="true" />
+            <span className="h-1.5 w-1.5 rounded-full" style={{ background: colors[k] }} aria-hidden="true" />
             {k}
           </li>
         )}

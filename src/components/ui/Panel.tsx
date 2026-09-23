@@ -15,7 +15,7 @@ export function Panel({ title, subtitle, action, className, bodyClassName, child
   return (
     <section id={id} className={twMerge("min-w-0 rounded-lg border border-line bg-surface shadow-card", className)}>
       {title &&
-      <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 pb-3 pt-3.5">
+      <header className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-3 pb-2 pt-2.5">
           <h2 className="text-base font-semibold text-navy">
             {title}
             {subtitle && <span className="ml-1.5 text-sm font-normal text-muted">{subtitle}</span>}
@@ -23,7 +23,7 @@ export function Panel({ title, subtitle, action, className, bodyClassName, child
           {action}
         </header>
       }
-      <div className={twMerge(title ? "px-4 pb-4" : "p-4", bodyClassName)}>{children}</div>
+      <div className={twMerge(title ? "px-3 pb-3" : "p-2.5", bodyClassName)}>{children}</div>
     </section>);
 
 }

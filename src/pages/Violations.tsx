@@ -88,10 +88,10 @@ export function Violations() {
 
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Violations" description="Review detected traffic violations and the evidence supporting them." />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <KpiCard icon={FileWarningIcon} label="Total Violations" value="842" note="last 7 days" />
         <KpiCard icon={ClockIcon} tone="warning" label="Pending Review" value={pending} note="awaiting an operator" />
         <KpiCard icon={CheckCircle2Icon} tone="success" label="Verified" value={verified} note="today" />
@@ -110,7 +110,7 @@ export function Violations() {
               License plate
             </label>
             <div className="relative">
-              <input id="vio-plate" value={plate} onChange={(e) => setPlate(e.target.value)} placeholder="e.g. UP32 CD 7781" className="h-9 w-full rounded-md border border-line pl-3 pr-8 text-sm text-ink placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+              <input id="vio-plate" value={plate} onChange={(e) => setPlate(e.target.value)} placeholder="e.g. UP32 CD 7781" className="h-[30px] w-full rounded-md border border-line pl-3 pr-8 text-xs text-ink placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
               <SearchIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
             </div>
           </div>
@@ -118,21 +118,21 @@ export function Violations() {
         </div>
       </Panel>
 
-      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_26.25rem]">
+      <div className="grid grid-cols-1 items-start gap-3 xl:grid-cols-[minmax(0,1fr)_26.25rem]">
         <Panel title="Violation Records" subtitle={`(${filtered.length} shown)`} bodyClassName="px-0 pb-2">
           {filtered.length === 0 ?
           <EmptyState
             icon={FileSearchIcon}
             title="No violations found for the selected filters."
             action={
-            <button type="button" onClick={clearFilters} className="h-9 rounded-md border border-primary px-4 text-sm font-semibold text-primary hover:bg-primary-light">
+            <button type="button" onClick={clearFilters} className="h-[30px] rounded-md border border-primary px-4 text-xs font-semibold text-primary hover:bg-primary-light">
                   Clear filters
                 </button>
             } /> :
 
 
           <div className="overflow-x-auto">
-              <table className="w-full min-w-[860px] text-sm">
+              <table className="w-full min-w-[760px] text-xs">
                 <thead className="border-y border-line bg-canvas text-left text-xs text-muted">
                   <tr>
                     <th className="px-4 py-2"><SortHeader k="time" label="Time" /></th>
@@ -150,19 +150,19 @@ export function Violations() {
                   const isSel = v.id === selectedId;
                   return (
                     <tr key={v.id} onClick={() => select(v.id)} className={`cursor-pointer transition-colors duration-150 ${isSel ? "bg-primary-light" : "hover:bg-canvas"}`} aria-selected={isSel}>
-                        <td className="tabular whitespace-nowrap px-4 py-2.5 text-muted">
+                        <td className="tabular whitespace-nowrap px-4 py-1.5 text-muted">
                           {v.time}
                           {v.date !== "23 Sep 2026" && <span className="block text-xs">{v.date.slice(0, 6)}</span>}
                         </td>
-                        <td className="tabular whitespace-nowrap px-3 py-2.5 font-semibold text-ink">{v.plate}</td>
-                        <td className="whitespace-nowrap px-3 py-2.5 text-ink">{v.type}</td>
-                        <td className="max-w-[180px] truncate px-3 py-2.5 text-ink">{v.location}</td>
-                        <td className="px-3 py-2.5 text-muted">{v.cameraId}</td>
-                        <td className={`tabular px-3 py-2.5 font-medium ${confidenceClass(v.confidence)}`}>{v.confidence}%</td>
-                        <td className="px-3 py-2.5">
+                        <td className="tabular whitespace-nowrap px-3 py-1.5 font-semibold text-ink">{v.plate}</td>
+                        <td className="whitespace-nowrap px-3 py-1.5 text-ink">{v.type}</td>
+                        <td className="max-w-[180px] truncate px-3 py-1.5 text-ink">{v.location}</td>
+                        <td className="px-3 py-1.5 text-muted">{v.cameraId}</td>
+                        <td className={`tabular px-3 py-1.5 font-medium ${confidenceClass(v.confidence)}`}>{v.confidence}%</td>
+                        <td className="px-3 py-1.5">
                           <StatusBadge tone={violationTone(v.status)}>{v.status}</StatusBadge>
                         </td>
-                        <td className="px-4 py-2.5 text-right">
+                        <td className="px-4 py-1.5 text-right">
                           <button
                           type="button"
                           onClick={(e) => {

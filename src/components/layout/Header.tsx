@@ -27,8 +27,8 @@ export function Header({ mobileNavOpen, onToggleMobileNav }: HeaderProps) {
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center gap-3 border-b border-line bg-surface pr-4 lg:pr-6">
-      <div className="flex h-full shrink-0 items-center gap-2 pl-3 lg:w-60 lg:border-r lg:border-line lg:pl-5">
+    <header className="sticky top-0 z-40 flex h-12 shrink-0 items-center gap-3 border-b border-line bg-surface pr-4 lg:pr-6">
+      <div className="flex h-full shrink-0 items-center gap-2 pl-3 lg:w-[188px] lg:border-r lg:border-line lg:pl-5">
         <button
           type="button"
           onClick={onToggleMobileNav}
@@ -38,7 +38,7 @@ export function Header({ mobileNavOpen, onToggleMobileNav }: HeaderProps) {
           {mobileNavOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
         </button>
         <Link to="/" className="flex items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-navy text-white">
+          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-navy text-white">
             <TrafficConeIcon className="h-5 w-5" aria-hidden="true" />
           </span>
           <span className="hidden leading-tight sm:block">
@@ -81,7 +81,7 @@ export function Header({ mobileNavOpen, onToggleMobileNav }: HeaderProps) {
             aria-haspopup="menu"
             aria-expanded={menuOpen}>
             
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">AS</span>
+            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-sm font-semibold text-white">AS</span>
             <span className="hidden text-left leading-tight sm:block">
               <span className="block text-sm font-semibold text-navy">Anil Srivastava</span>
               <span className="block text-xs text-muted">Control Room Admin</span>

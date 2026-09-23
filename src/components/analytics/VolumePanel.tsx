@@ -49,7 +49,7 @@ export function VolumePanel({ range, loading, hourly, daily, showBaseline, onTog
             </div>
           </div>
         }
-        <ResponsiveContainer width="100%" height={270}>
+        <ResponsiveContainer width="100%" height={180}>
           <ComposedChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
             <CartesianGrid vertical={false} stroke="#E9EEF4" />
             <XAxis dataKey="label" tick={axisTick} tickLine={false} axisLine={{ stroke: "#D9E2EC" }} interval={isHourly ? 1 : 0} />

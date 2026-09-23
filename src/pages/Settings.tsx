@@ -15,16 +15,16 @@ export function Settings() {
   const [refresh, setRefresh] = useState("Every 5 seconds");
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Settings" description="Personal preferences for this control-room workstation." />
-      <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <Panel title="Notifications & display">
           <ul className="divide-y divide-line-soft">
             {toggles.map((t) =>
-            <li key={t.key} className="flex items-center justify-between gap-4 py-3">
+            <li key={t.key} className="flex items-center justify-between gap-3 py-3">
                 <div>
-                  <p className="text-sm font-medium text-ink">{t.label}</p>
-                  <p className="text-sm text-muted">{t.description}</p>
+                  <p className="text-xs font-medium text-ink">{t.label}</p>
+                  <p className="text-xs text-muted">{t.description}</p>
                 </div>
                 <button
                 type="button"
@@ -32,22 +32,22 @@ export function Settings() {
                 aria-checked={state[t.key]}
                 aria-label={t.label}
                 onClick={() => setState((s) => ({ ...s, [t.key]: !s[t.key] }))}
-                className={`relative h-6 w-11 shrink-0 rounded-full transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${state[t.key] ? "bg-primary" : "bg-[#CBD5E1]"}`}>
+                className={`relative h-5 w-9 shrink-0 rounded-full transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${state[t.key] ? "bg-primary" : "bg-[#CBD5E1]"}`}>
                 
-                  <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-150 ${state[t.key] ? "translate-x-[1.375rem]" : "translate-x-0.5"}`} />
+                  <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform duration-150 ${state[t.key] ? "translate-x-[1.125rem]" : "translate-x-0.5"}`} />
                 </button>
               </li>
             )}
           </ul>
           <div className="mt-3 flex flex-wrap items-end justify-between gap-3 border-t border-line pt-4">
             <SelectField label="Dashboard refresh interval" value={refresh} options={["Every 5 seconds", "Every 15 seconds", "Every 60 seconds"]} onChange={setRefresh} className="w-60" />
-            <button type="button" onClick={() => toast.success("Preferences saved for this workstation")} className="h-9 rounded-md bg-primary px-5 text-sm font-semibold text-white hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+            <button type="button" onClick={() => toast.success("Preferences saved for this workstation")} className="h-[30px] rounded-md bg-primary px-5 text-xs font-semibold text-white hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
               Save preferences
             </button>
           </div>
         </Panel>
         <Panel title="System information">
-          <dl className="divide-y divide-line-soft text-sm">
+          <dl className="divide-y divide-line-soft text-xs">
             {[
             ["Control room", "Lucknow Traffic Control Room"],
             ["Application version", "1.0.0"],

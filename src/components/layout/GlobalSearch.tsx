@@ -80,7 +80,7 @@ export function GlobalSearch() {
         onBlur={() => window.setTimeout(() => setOpen(false), 120)}
         onKeyDown={onKeyDown}
         placeholder="Search cameras, locations or plate number…"
-        className="h-10 w-full rounded-md border border-line bg-surface pl-3.5 pr-10 text-sm text-ink placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+        className="h-[30px] w-full rounded-md border border-line bg-surface pl-3.5 pr-10 text-xs text-ink placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
         role="combobox"
         aria-expanded={open && results.length > 0}
         aria-controls="global-search-results"
@@ -94,7 +94,7 @@ export function GlobalSearch() {
         className="absolute left-0 right-0 top-11 z-50 overflow-hidden rounded-md border border-line bg-surface py-1 shadow-pop">
         
           {results.length === 0 ?
-        <li className="px-3 py-2.5 text-sm text-muted">No cameras or locations match “{query}”.</li> :
+        <li className="px-3 py-2.5 text-xs text-muted">No cameras or locations match “{query}”.</li> :
 
         results.map((r, i) =>
         <li key={r.key} role="option" aria-selected={i === active}>
@@ -103,7 +103,7 @@ export function GlobalSearch() {
             onMouseDown={(e) => e.preventDefault()}
             onClick={() => choose(r)}
             onMouseEnter={() => setActive(i)}
-            className={`flex w-full items-center gap-3 px-3 py-2 text-left text-sm ${i === active ? "bg-primary-light" : ""}`}>
+            className={`flex w-full items-center gap-3 px-3 py-2 text-left text-xs ${i === active ? "bg-primary-light" : ""}`}>
             
                   {r.kind === "plate" ?
             <CarFrontIcon className="h-4 w-4 text-primary" aria-hidden="true" /> :

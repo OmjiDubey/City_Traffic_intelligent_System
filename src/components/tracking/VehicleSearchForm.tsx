@@ -19,7 +19,7 @@ interface VehicleSearchFormProps {
 
 const times = Array.from({ length: 24 }, (_, i) => `${String(i).padStart(2, "0")}:00`).concat("23:59");
 const inputBase =
-"h-10 w-full rounded-md border border-line bg-surface text-sm text-ink focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20";
+"h-[30px] w-full rounded-md border border-line bg-surface text-xs text-ink focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20";
 
 export const VehicleSearchForm = forwardRef<HTMLInputElement, VehicleSearchFormProps>(function VehicleSearchForm(
 { values, loading, onChange, onSearch, onReset },
@@ -33,7 +33,7 @@ ref)
         Search Vehicle
       </h2>
       <form
-        className="mt-3 grid grid-cols-1 items-start gap-4 md:grid-cols-2 xl:grid-cols-[minmax(13.75rem,1.3fr)_minmax(16.25rem,1.2fr)_minmax(13.75rem,1fr)_auto]"
+        className="mt-3 grid grid-cols-1 items-start gap-3 md:grid-cols-2 xl:grid-cols-[minmax(13.75rem,1.3fr)_minmax(16.25rem,1.2fr)_minmax(13.75rem,1fr)_auto]"
         onSubmit={(e) => {
           e.preventDefault();
           onSearch();
@@ -98,7 +98,7 @@ ref)
           <button
             type="submit"
             disabled={loading}
-            className="flex h-10 flex-1 items-center justify-center gap-2 rounded-md bg-primary px-6 text-sm font-semibold text-white transition-colors duration-150 hover:bg-primary-hover disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 xl:w-36 xl:flex-none">
+            className="flex h-[30px] flex-1 items-center justify-center gap-2 rounded-md bg-primary px-6 text-xs font-semibold text-white transition-colors duration-150 hover:bg-primary-hover disabled:opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 xl:w-36 xl:flex-none">
             
             {loading ? <Loader2Icon className="h-4 w-4 animate-spin" /> : <SearchIcon className="h-4 w-4" />}
             {loading ? "Searching" : "Search"}
@@ -106,7 +106,7 @@ ref)
           <button
             type="button"
             onClick={onReset}
-            className="flex h-10 flex-1 items-center justify-center gap-2 rounded-md border border-primary bg-surface px-5 text-sm font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:w-28 xl:flex-none">
+            className="flex h-[30px] flex-1 items-center justify-center gap-2 rounded-md border border-primary bg-surface px-5 text-xs font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary xl:w-28 xl:flex-none">
             
             <RotateCcwIcon className="h-4 w-4" />
             Reset

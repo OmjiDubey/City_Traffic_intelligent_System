@@ -68,7 +68,7 @@ export function DeviationPanel() {
             <Figure label="Historical baseline" value={formatNumber(current.baseline)} unit="veh/hr" />
             <div className="bg-surface p-4">
               <p className="text-xs text-muted">Deviation</p>
-              <p className={`tabular mt-1 text-[1.75rem] font-bold leading-none ${status.text}`}>
+              <p className={`tabular mt-1 text-xl font-bold leading-none ${status.text}`}>
                 {sign}
                 {Math.round(current.deviation)}%
               </p>
@@ -78,7 +78,7 @@ export function DeviationPanel() {
             </div>
           </div>
           <div className="mt-4">
-            <ResponsiveContainer width="100%" height={205}>
+            <ResponsiveContainer width="100%" height={160}>
               <LineChart data={series} margin={{ top: 8, right: 8, left: -12, bottom: 0 }}>
                 <CartesianGrid vertical={false} stroke="#E9EEF4" />
                 <XAxis dataKey="hour" tick={axisTick} tickLine={false} axisLine={{ stroke: "#D9E2EC" }} interval={2} />
@@ -94,11 +94,11 @@ export function DeviationPanel() {
         </div>
 
         <div className="min-w-0">
-          <h3 className="mb-2 text-sm font-semibold text-navy">
+          <h3 className="mb-2 text-xs font-semibold text-navy">
             All monitored locations at {hourOptions[hour]}, {day}
           </h3>
           <div className="overflow-hidden rounded-md border border-line">
-            <table className="w-full text-sm">
+            <table className="w-full text-xs">
               <thead className="bg-canvas text-left text-xs font-semibold text-muted">
                 <tr>
                   <th className="px-3 py-2">Location</th>
@@ -142,7 +142,7 @@ function Figure({ label, value, unit, strong = false }: {label: string;value: st
   return (
     <div className="bg-surface p-4">
       <p className="text-xs text-muted">{label}</p>
-      <p className={`tabular mt-1 text-[1.75rem] font-bold leading-none ${strong ? "text-primary" : "text-navy"}`}>{value}</p>
+      <p className={`tabular mt-1 text-xl font-bold leading-none ${strong ? "text-primary" : "text-navy"}`}>{value}</p>
       <p className="mt-2 text-xs text-muted">{unit}</p>
     </div>);
 

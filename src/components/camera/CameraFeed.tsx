@@ -83,14 +83,14 @@ export function CameraFeed({
           </div>
       )}
 
-      <div className="absolute left-2 top-2 flex items-center gap-1.5 rounded bg-black/65 px-2 py-0.5 text-[0.6875rem] font-semibold text-white">
+      <div className="absolute left-2 top-2 flex items-center gap-1.5 rounded bg-black/65 px-1.5 py-0.5 text-[9px] font-semibold text-white">
         <span className={twMerge("h-2 w-2 rounded-full", statusChip.dot)} aria-hidden="true" />
         {statusChip.label}
       </div>
 
       <div className="absolute right-2 top-2 flex items-center gap-1.5">
         {!offline && showTelemetry &&
-        <span className="tabular rounded bg-black/65 px-2 py-0.5 text-[0.6875rem] text-white">{formatClockTime(now)}</span>
+        <span className="tabular rounded bg-black/65 px-1.5 py-0.5 text-[9px] text-white">{formatClockTime(now)}</span>
         }
         {onExpand &&
         <button
@@ -107,8 +107,8 @@ export function CameraFeed({
         }
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-black/65 px-2.5 py-1.5 text-white">
-        <p className="min-w-0 truncate text-xs">
+      <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-black/65 px-2 py-1 text-white">
+        <p className="min-w-0 truncate text-[11px]">
           <span className="font-semibold">{camera.id}</span>
           <span className="ml-2 text-[#E2E8F0]">{camera.location}</span>
         </p>

@@ -77,7 +77,7 @@ export function VehicleTracking() {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <PageHeader title="Vehicle Tracking" description="Search a vehicle by license plate number to view its journey, camera sightings and route on map." />
 
       <VehicleSearchForm ref={inputRef} values={values} loading={status === "loading"} onChange={setValues} onSearch={onSearch} onReset={onReset} />
@@ -113,7 +113,7 @@ export function VehicleTracking() {
           title="No matching vehicle found for the selected plate number and time range."
           description={`No ANPR sightings of “${values.plate}” between ${values.fromDate} ${values.fromTime} and ${values.toDate} ${values.toTime}.`}
           action={
-          <button type="button" onClick={() => inputRef.current?.focus()} className="h-9 rounded-md border border-primary px-4 text-sm font-semibold text-primary hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+          <button type="button" onClick={() => inputRef.current?.focus()} className="h-[30px] rounded-md border border-primary px-3 text-xs font-semibold text-primary hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
                 Modify search
               </button>
           } />
@@ -121,7 +121,7 @@ export function VehicleTracking() {
         </div>
       }
 
-      <div className="grid grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1fr)_25rem]">
+      <div className="grid grid-cols-1 gap-3 xl:grid-cols-[minmax(0,1fr)_24rem]">
         <section className="min-w-0 rounded-lg border border-line bg-surface p-4 shadow-card" aria-label="Vehicle route">
           <header className="mb-3 flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-base font-semibold text-navy">Vehicle Route</h2>

@@ -43,16 +43,16 @@ export function ViolationDetail({ violation }: {violation: Violation;}) {
 
 
   return (
-    <div className="space-y-4 p-4">
+    <div className="space-y-3 p-3">
       <div className="flex items-center justify-between gap-2">
-        <p className="tabular text-sm font-semibold text-muted">{v.id}</p>
+        <p className="tabular text-xs font-semibold text-muted">{v.id}</p>
         <StatusBadge tone={violationTone(v.status)} dot>
           {v.status}
         </StatusBadge>
       </div>
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-navy">Evidence</h3>
+        <h3 className="mb-2 text-xs font-semibold text-navy">Evidence</h3>
         <div className="relative aspect-video overflow-hidden rounded-md bg-[#0B1422]">
           <img src={v.image} alt={`Evidence frame from ${v.cameraId}`} className="h-full w-full object-cover" />
           <div className="absolute border-2 border-dashed border-[#FBBF24] bg-[#FBBF24]/10" style={{ left: `${v.zoneArea.x}%`, top: `${v.zoneArea.y}%`, width: `${v.zoneArea.w}%`, height: `${v.zoneArea.h}%` }}>
@@ -72,8 +72,8 @@ export function ViolationDetail({ violation }: {violation: Violation;}) {
       </div>
 
       <div>
-        <h3 className="mb-1 text-sm font-semibold text-navy">Details</h3>
-        <dl className="divide-y divide-line-soft text-sm">
+        <h3 className="mb-1 text-xs font-semibold text-navy">Details</h3>
+        <dl className="divide-y divide-line-soft text-xs">
           {rows.map(([k, val]) =>
           <div key={k} className="grid grid-cols-[9.375rem_minmax(0,1fr)] gap-2 py-1.5">
               <dt className="text-muted">{k}</dt>
@@ -84,7 +84,7 @@ export function ViolationDetail({ violation }: {violation: Violation;}) {
       </div>
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-navy">Review</h3>
+        <h3 className="mb-2 text-xs font-semibold text-navy">Review</h3>
         <div role="radiogroup" aria-label="Review decision" className="grid grid-cols-3 gap-2">
           {reviewOptions.map((o) => {
             const active = v.status === o.status;
@@ -95,7 +95,7 @@ export function ViolationDetail({ violation }: {violation: Violation;}) {
                 role="radio"
                 aria-checked={active}
                 onClick={() => review(o.status)}
-                className={`flex h-9 items-center justify-center gap-1.5 rounded-md border text-sm font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                className={`flex h-[30px] items-center justify-center gap-1.5 rounded-md border text-xs font-semibold transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                 active ? o.active : "border-line bg-surface text-navy hover:bg-canvas"}`
                 }>
                 
@@ -109,7 +109,7 @@ export function ViolationDetail({ violation }: {violation: Violation;}) {
 
       <Link
         to={`/vehicle-tracking?plate=${encodeURIComponent(v.plate)}`}
-        className="flex h-9 items-center justify-center gap-2 rounded-md border border-primary text-sm font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+        className="flex h-[30px] items-center justify-center gap-2 rounded-md border border-primary text-xs font-semibold text-primary transition-colors duration-150 hover:bg-primary-light focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
         
         <RouteIcon className="h-4 w-4" /> View vehicle journey
       </Link>

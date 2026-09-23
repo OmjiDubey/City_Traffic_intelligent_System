@@ -32,21 +32,21 @@ export function CameraHealthDetail({ camera }: {camera: Camera;}) {
 
 
   return (
-    <div className="space-y-4 p-4">
+    <div className="space-y-3 p-3">
       <div className="flex items-center justify-between gap-2">
-        <p className="text-sm font-semibold text-ink">{c.location}</p>
+        <p className="text-xs font-semibold text-ink">{c.location}</p>
         <StatusBadge tone={cameraTone(c.status)} dot>
           {c.status}
         </StatusBadge>
       </div>
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-navy">Preview</h3>
+        <h3 className="mb-2 text-xs font-semibold text-navy">Preview</h3>
         <CameraFeed camera={c} showTelemetry />
       </div>
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold text-navy">Performance</h3>
+        <h3 className="mb-2 text-xs font-semibold text-navy">Performance</h3>
         <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line">
           {perf.map((p) =>
           <div key={p.label} className="bg-surface px-3 py-2.5">
@@ -58,8 +58,8 @@ export function CameraHealthDetail({ camera }: {camera: Camera;}) {
       </div>
 
       <div>
-        <h3 className="mb-1 text-sm font-semibold text-navy">Camera information</h3>
-        <dl className="divide-y divide-line-soft text-sm">
+        <h3 className="mb-1 text-xs font-semibold text-navy">Camera information</h3>
+        <dl className="divide-y divide-line-soft text-xs">
           {info.map(([k, v]) =>
           <div key={k} className="grid grid-cols-[8.125rem_minmax(0,1fr)] gap-2 py-1.5">
               <dt className="text-muted">{k}</dt>
@@ -72,7 +72,7 @@ export function CameraHealthDetail({ camera }: {camera: Camera;}) {
       <button
         type="button"
         onClick={() => navigate(`/live-monitoring?camera=${c.id}`)}
-        className="flex h-10 w-full items-center justify-center gap-2 rounded-md bg-primary text-sm font-semibold text-white transition-colors duration-150 hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+        className="flex h-[30px] w-full items-center justify-center gap-2 rounded-md bg-primary text-xs font-semibold text-white transition-colors duration-150 hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
         
         <MonitorPlayIcon className="h-4 w-4" /> Open in Live Monitoring
       </button>

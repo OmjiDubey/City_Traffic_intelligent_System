@@ -23,7 +23,7 @@ export function SelectField({ label, value, options, onChange, hideLabel = false
           id={id}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="h-9 w-full appearance-none truncate rounded-md border border-line bg-surface pl-3 pr-8 text-sm text-ink transition-colors duration-150 hover:border-[#B8C6D6] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+          className="h-[30px] w-full appearance-none truncate rounded-md border border-line bg-surface pl-2.5 pr-7 text-xs text-ink transition-colors duration-150 hover:border-[#B8C6D6] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
           
           {options.map((o) =>
           <option key={o} value={o}>
@@ -32,7 +32,7 @@ export function SelectField({ label, value, options, onChange, hideLabel = false
           )}
         </select>
         <ChevronDownIcon
-          className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
+          className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted"
           aria-hidden="true" />
         
       </div>

@@ -30,10 +30,10 @@ export function Dashboard() {
   const feeds = dashboardFeeds.map((id) => cameras.find((c) => c.id === id)!);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Welcome, Anil" description="Here's the current status of the Lucknow city traffic network." />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <KpiCard icon={CarIcon} label="Total Vehicles (Today)" value="48,320" trend={{ value: "12%", direction: "up", tone: "neutral" }} note="vs. yesterday" />
         <KpiCard icon={VideoIcon} label="Active Cameras" value={`${online} / ${cameras.length}`} note={`${cameras.length - online} offline`} />
         <KpiCard icon={TriangleAlertIcon} tone="danger" label="Violations (Today)" value="124" trend={{ value: "8%", direction: "up", tone: "bad" }} note="vs. yesterday" />
@@ -51,7 +51,7 @@ export function Dashboard() {
             </Link>
           }>
           
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {feeds.map((cam) =>
             <button
               key={cam.id}
@@ -81,10 +81,10 @@ export function Dashboard() {
 
             }>
             
-            <TrafficVolumeChart data={volumeData} height={170} />
+            <TrafficVolumeChart data={volumeData} height={120} />
           </Panel>
           <Panel title="Congestion Trend" subtitle="(Last 24 hours, city index)">
-            <CongestionChart data={congestionTrend} height={145} />
+            <CongestionChart data={congestionTrend} height={100} />
           </Panel>
         </div>
       </div>
@@ -100,14 +100,14 @@ export function Dashboard() {
           bodyClassName="px-0 pb-2">
           
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[560px] text-sm">
+            <table className="w-full min-w-[480px] text-xs">
               <thead className="border-y border-line bg-canvas text-left text-xs font-semibold text-muted">
                 <tr>
-                  <th className="px-4 py-2">Time</th>
-                  <th className="px-4 py-2">Plate Number</th>
-                  <th className="px-4 py-2">Violation</th>
-                  <th className="px-4 py-2">Camera</th>
-                  <th className="px-4 py-2">Status</th>
+                  <th className="px-4 py-1">Time</th>
+                  <th className="px-4 py-1">Plate Number</th>
+                  <th className="px-4 py-1">Violation</th>
+                  <th className="px-4 py-1">Camera</th>
+                  <th className="px-4 py-1">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-line-soft">
@@ -117,11 +117,11 @@ export function Dashboard() {
                   onClick={() => navigate(`/violations?id=${v.id}`)}
                   className="cursor-pointer transition-colors duration-150 hover:bg-canvas">
                   
-                    <td className="tabular px-4 py-2.5 text-muted">{v.time.slice(0, 5)}</td>
-                    <td className="px-4 py-2.5 font-semibold text-ink">{v.plate}</td>
-                    <td className="px-4 py-2.5 text-ink">{v.type}</td>
-                    <td className="px-4 py-2.5 text-muted">{v.cameraId}</td>
-                    <td className="px-4 py-2.5">
+                    <td className="tabular px-4 py-1.5 text-muted">{v.time.slice(0, 5)}</td>
+                    <td className="px-4 py-1.5 font-semibold text-ink">{v.plate}</td>
+                    <td className="px-4 py-1.5 text-ink">{v.type}</td>
+                    <td className="px-4 py-1.5 text-muted">{v.cameraId}</td>
+                    <td className="px-4 py-1.5">
                       <StatusBadge tone={violationTone(v.status)}>{v.status}</StatusBadge>
                     </td>
                   </tr>
@@ -141,14 +141,14 @@ export function Dashboard() {
           bodyClassName="px-0 pb-2">
           
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[560px] text-sm">
+            <table className="w-full min-w-[480px] text-xs">
               <thead className="border-y border-line bg-canvas text-left text-xs font-semibold text-muted">
                 <tr>
-                  <th className="px-4 py-2">Time</th>
-                  <th className="px-4 py-2">Alert Type</th>
-                  <th className="px-4 py-2">Location</th>
-                  <th className="px-4 py-2">Severity</th>
-                  <th className="px-4 py-2">Status</th>
+                  <th className="px-4 py-1">Time</th>
+                  <th className="px-4 py-1">Alert Type</th>
+                  <th className="px-4 py-1">Location</th>
+                  <th className="px-4 py-1">Severity</th>
+                  <th className="px-4 py-1">Status</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-line-soft">
@@ -158,13 +158,13 @@ export function Dashboard() {
                   onClick={() => navigate(`/alerts?id=${a.id}`)}
                   className="cursor-pointer transition-colors duration-150 hover:bg-canvas">
                   
-                    <td className="tabular px-4 py-2.5 text-muted">{a.time}</td>
-                    <td className="px-4 py-2.5 font-medium text-ink">{a.type}</td>
-                    <td className="max-w-[180px] truncate px-4 py-2.5 text-ink">{a.location}</td>
-                    <td className="px-4 py-2.5">
+                    <td className="tabular px-4 py-1.5 text-muted">{a.time}</td>
+                    <td className="px-4 py-1.5 font-medium text-ink">{a.type}</td>
+                    <td className="max-w-[180px] truncate px-4 py-1.5 text-ink">{a.location}</td>
+                    <td className="px-4 py-1.5">
                       <StatusBadge tone={severityTone(a.severity)}>{a.severity}</StatusBadge>
                     </td>
-                    <td className="px-4 py-2.5">
+                    <td className="px-4 py-1.5">
                       <StatusBadge tone={alertStatusTone(a.status)}>{a.status}</StatusBadge>
                     </td>
                   </tr>

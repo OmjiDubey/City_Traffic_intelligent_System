@@ -34,7 +34,7 @@ export function TrafficFlowPanel() {
 
         <div className="min-w-0">
           <h3 className="mb-1 text-sm font-semibold text-navy">Camera-wise traffic</h3>
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={170}>
             <BarChart data={topCameras} layout="vertical" margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
               <CartesianGrid horizontal={false} stroke="#E9EEF4" />
               <XAxis type="number" tick={axisTick} tickLine={false} axisLine={false} tickFormatter={(v: number) => `${v / 1000}k`} />
@@ -56,20 +56,20 @@ export function TrafficFlowPanel() {
             <table className="w-full text-sm">
               <thead className="bg-canvas text-left text-xs font-semibold text-muted">
                 <tr>
-                  <th className="px-3 py-2">Corridor</th>
-                  <th className="px-3 py-2 text-right">Inbound</th>
-                  <th className="px-3 py-2 text-right">Outbound</th>
+                  <th className="px-3 py-1">Corridor</th>
+                  <th className="px-3 py-1 text-right">Inbound</th>
+                  <th className="px-3 py-1 text-right">Outbound</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-line-soft">
                 {directionalFlow.map((d) =>
                 <tr key={d.corridor}>
-                    <td className="px-3 py-2">
+                    <td className="px-3 py-1">
                       <span className="block truncate text-ink">{d.corridor}</span>
                       <span className="text-xs text-muted">Peak: {d.peakDir}</span>
                     </td>
-                    <td className="tabular px-3 py-2 text-right text-ink">{formatNumber(d.nb)}</td>
-                    <td className="tabular px-3 py-2 text-right text-ink">{formatNumber(d.sb)}</td>
+                    <td className="tabular px-3 py-1 text-right text-ink">{formatNumber(d.nb)}</td>
+                    <td className="tabular px-3 py-1 text-right text-ink">{formatNumber(d.sb)}</td>
                   </tr>
                 )}
               </tbody>

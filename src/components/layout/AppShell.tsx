@@ -17,7 +17,7 @@ export function AppShell() {
       <Header mobileNavOpen={mobileOpen} onToggleMobileNav={() => setMobileOpen((o) => !o)} />
       <div className="flex min-h-0 flex-1">
         {mobileOpen &&
-        <div className="fixed inset-0 top-16 z-30 bg-ink/30 lg:hidden" onClick={() => setMobileOpen(false)} aria-hidden="true" />
+        <div className="fixed inset-0 top-12 z-30 bg-ink/30 lg:hidden" onClick={() => setMobileOpen(false)} aria-hidden="true" />
         }
         <Sidebar
           collapsed={collapsed}
@@ -26,10 +26,10 @@ export function AppShell() {
           onNavigate={() => setMobileOpen(false)} />
         
         <main className="flex min-w-0 flex-1 flex-col overflow-y-auto overflow-x-hidden">
-          <div className="mx-auto w-full max-w-[105rem] flex-1 px-4 py-5 sm:px-6 lg:py-6">
+          <div className="mx-auto w-full max-w-[105rem] flex-1 px-3 py-3 sm:px-4 sm:py-3.5 lg:px-5 lg:py-4">
             <Outlet />
           </div>
-          <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-4 py-3 text-xs text-muted sm:px-6">
+          <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-4 py-2 text-[11px] text-muted sm:px-6">
             <span>
               <span className="font-medium text-navy">Lucknow Traffic Control Room</span> · Integrated Traffic Management
             </span>

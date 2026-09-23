@@ -42,8 +42,8 @@ export function VehicleSummary({
     value: `${vehicle.distanceKm} km`,
     sub: "(Estimated)"
   }];
-  return <section aria-label="Vehicle summary" className="flex flex-col gap-4 rounded-lg border border-line bg-surface p-4 shadow-card 2xl:flex-row 2xl:items-center">
-      <div className="flex items-center gap-4 2xl:w-[22.5rem] 2xl:shrink-0 2xl:border-r 2xl:border-line 2xl:pr-4">
+  return <section aria-label="Vehicle summary" className="flex flex-col gap-3 rounded-lg border border-line bg-surface p-3 shadow-card 2xl:flex-row 2xl:items-center">
+      <div className="flex items-center gap-3 2xl:w-[22.5rem] 2xl:shrink-0 2xl:border-r 2xl:border-line 2xl:pr-3">
         <span role="img" aria-label={`Vehicle image, ${vehicle.make}`} className="block h-[4.5rem] w-[6.5rem] shrink-0 rounded-md border border-line bg-no-repeat" style={{
         backgroundImage: `url(${vehicle.frameImage})`,
         backgroundSize: `${Math.round(10000 / (b.w * 1.1))}%`,
@@ -60,12 +60,12 @@ export function VehicleSummary({
           <p className="text-sm text-muted">{vehicle.description}</p>
         </div>
       </div>
-      <dl className="grid flex-1 grid-cols-2 gap-y-4 sm:grid-cols-3 lg:grid-cols-6">
-        {stats.map((s, i) => <div key={s.label} className={`flex items-start gap-2.5 px-2 ${i > 0 ? "lg:border-l lg:border-line-soft lg:pl-4" : ""}`}>
+      <dl className="grid flex-1 grid-cols-2 gap-y-3 sm:grid-cols-3 lg:grid-cols-6">
+        {stats.map((s, i) => <div key={s.label} className={`flex items-start gap-2.5 px-2 ${i > 0 ? "lg:border-l lg:border-line-soft lg:pl-3" : ""}`}>
             <s.icon className="mt-0.5 h-5 w-5 shrink-0 text-muted" aria-hidden="true" />
             <div className="min-w-0">
               <dt className="truncate text-xs text-muted">{s.label}</dt>
-              <dd className="tabular text-base font-bold text-navy">{s.value}</dd>
+              <dd className="tabular text-sm font-bold text-navy">{s.value}</dd>
               {s.sub && <dd className="text-xs text-muted">{s.sub}</dd>}
             </div>
           </div>)}

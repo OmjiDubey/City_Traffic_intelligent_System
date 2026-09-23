@@ -47,10 +47,10 @@ export function Cameras() {
   const count = (s: string) => cameras.filter((c) => c.status === s).length;
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3">
       <PageHeader title="Cameras" description="Camera inventory and health across the city network." />
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5">
+      <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         <KpiCard icon={CctvIcon} label="Total Cameras" value={cameras.length} note="across 5 zones" />
         <KpiCard icon={WifiIcon} tone="success" label="Online" value={count("Online")} note={`${Math.round(count("Online") / cameras.length * 100)}% of network`} />
         <KpiCard icon={VideoOffIcon} tone="danger" label="Offline" value={count("Offline")} note="field team notified" />
@@ -65,7 +65,7 @@ export function Cameras() {
               Search camera / location
             </label>
             <div className="relative">
-              <input id="cam-search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="e.g. CAM-05 or Charbagh" className="h-9 w-full rounded-md border border-line pl-3 pr-8 text-sm text-ink placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
+              <input id="cam-search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="e.g. CAM-05 or Charbagh" className="h-[30px] w-full rounded-md border border-line pl-3 pr-8 text-xs text-ink placeholder:text-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20" />
               <SearchIcon className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" aria-hidden="true" />
             </div>
           </div>
@@ -75,13 +75,13 @@ export function Cameras() {
         </div>
       </Panel>
 
-      <div className="grid grid-cols-1 items-start gap-5 xl:grid-cols-[minmax(0,1fr)_25rem]">
+      <div className="grid grid-cols-1 items-start gap-3 xl:grid-cols-[minmax(0,1fr)_25rem]">
         <Panel title="Camera Inventory" subtitle={`(${filtered.length} of ${cameras.length})`} bodyClassName="px-0 pb-2">
           {filtered.length === 0 ?
           <EmptyState icon={VideoIcon} title="No cameras match your search." description="Try a different camera ID, location, or filter." /> :
 
           <div className="overflow-x-auto">
-              <table className="w-full min-w-[760px] text-sm">
+              <table className="w-full min-w-[660px] text-xs">
                 <thead className="border-y border-line bg-canvas text-left text-xs font-semibold text-muted">
                   <tr>
                     <th className="px-4 py-2">Camera ID</th>
@@ -98,18 +98,18 @@ export function Cameras() {
                   const isSel = c.id === selectedId;
                   return (
                     <tr key={c.id} onClick={() => select(c.id)} className={`cursor-pointer transition-colors duration-150 ${isSel ? "bg-primary-light" : "hover:bg-canvas"}`} aria-selected={isSel}>
-                        <td className="px-4 py-2.5 font-semibold text-ink">
+                        <td className="px-4 py-1.5 font-semibold text-ink">
                           {c.id}
                           {c.recentlyAdded && <span className="ml-2 text-xs font-medium text-info-ink">New</span>}
                         </td>
-                        <td className="max-w-[220px] truncate px-3 py-2.5 text-ink">{c.location}</td>
-                        <td className="px-3 py-2.5 text-muted">{c.zone}</td>
-                        <td className="px-3 py-2.5">
+                        <td className="max-w-[220px] truncate px-3 py-1.5 text-ink">{c.location}</td>
+                        <td className="px-3 py-1.5 text-muted">{c.zone}</td>
+                        <td className="px-3 py-1.5">
                           <StatusBadge tone={cameraTone(c.status)}>{c.status}</StatusBadge>
                         </td>
-                        <td className="px-3 py-2.5 text-muted">{c.lastActive}</td>
-                        <td className="tabular px-3 py-2.5 text-right text-ink">{formatNumber(c.vehiclesToday)}</td>
-                        <td className="px-4 py-2.5 text-right">
+                        <td className="px-3 py-1.5 text-muted">{c.lastActive}</td>
+                        <td className="tabular px-3 py-1.5 text-right text-ink">{formatNumber(c.vehiclesToday)}</td>
+                        <td className="px-4 py-1.5 text-right">
                           <button
                           type="button"
                           onClick={(e) => {

@@ -14,8 +14,8 @@ export function PageHeader({ title, description, actions, showClock = true }: Pa
   return (
     <div className="flex flex-wrap items-end justify-between gap-3">
       <div className="min-w-0">
-        <h1 className="text-2xl font-bold tracking-tight text-navy sm:text-[1.75rem]">{title}</h1>
-        <p className="mt-1 text-sm text-muted sm:text-[0.9375rem]">{description}</p>
+        <h1 className="text-lg sm:text-xl font-bold tracking-tight text-navy">{title}</h1>
+        <p className="mt-0.5 text-xs text-muted">{description}</p>
       </div>
       <div className="flex flex-wrap items-center gap-3">
         {actions}
